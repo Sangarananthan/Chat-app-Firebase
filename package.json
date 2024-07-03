@@ -3,42 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "firebase": "^10.12.2",
-    "less": "^4.2.0",
-    "less-loader": "^12.2.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-router": "^5.2.0",
+    "firebase": "8.10.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.2.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
-    "rsuite": "^4.10.0",
-    "sass": "^1.77.6",
-    "web-vitals": "^2.1.4",
-    "workbox-background-sync": "^6.6.0",
-    "workbox-broadcast-update": "^6.6.0",
-    "workbox-cacheable-response": "^6.6.0",
-    "workbox-core": "^6.6.0",
-    "workbox-expiration": "^6.6.0",
-    "workbox-google-analytics": "^6.6.1",
-    "workbox-navigation-preload": "^6.6.0",
-    "workbox-precaching": "^6.6.0",
-    "workbox-range-requests": "^6.6.0",
-    "workbox-routing": "^6.6.0",
-    "workbox-strategies": "^6.6.0",
-    "workbox-streams": "^6.6.0"
+    "rsuite": "^4.10.2",
+    "sass": "^1.57.1"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "npm-run-clear react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint src/**/*.js",
-    "format": "prettier --write src/**/*.js",
-    "format:lint": "npm run format && npm run lint",
-    "clear": "rimraf build"
+    "build": "react-scripts build",
+    "format": "prettier --write src/**/*.{js,jsx}"
   },
   "eslintConfig": {
     "extends": [
@@ -59,14 +36,10 @@
     ]
   },
   "devDependencies": {
-    "babel-eslint": "^10.1.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-react": "^7.34.3",
-    "eslint-plugin-react-hooks": "^4.6.2",
-    "prettier": "^3.3.2",
-    "rimraf": "^5.0.7"
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^2.7.1"
   }
 }

@@ -1,24 +1,22 @@
-import 'rsuite/lib/styles/index.less'; // Import the Less file
-import './App.css';
-
-import './App.css';
-import { Switch } from 'react-router-dom/cjs/react-router-dom.min';
+import { Switch, Route } from 'react-router-dom';
+import 'rsuite/dist/styles/rsuite-default.css';
+import './styles/main.scss';
 import Signin from './pages/Signin';
-import PrivateRoute from './components/PrivateRoute';
 import Home from './pages/Home';
 import PublicRoute from './components/PublicRoute';
+import Privateroute from './components/PrivateRoute';
 
-const App = () => {
+function App() {
   return (
     <Switch>
       <PublicRoute path="/signin">
         <Signin />
       </PublicRoute>
-      <PrivateRoute path="/">
+      <Privateroute path="/">
         <Home />
-      </PrivateRoute>
+      </Privateroute>
     </Switch>
   );
-};
+}
 
 export default App;

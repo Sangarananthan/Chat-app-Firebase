@@ -1,10 +1,11 @@
-import { Redirect, Route } from 'react-router-dom/cjs/react-router-dom.min';
-
-const PrivateRoute = ({ children, ...routeProps }) => {
-  const profile = true;
+import { Redirect } from 'react-router-dom/cjs/react-router-dom.min';
+import { Route } from 'react-router-dom/cjs/react-router-dom.min';
+const Privateroute = ({ children, ...routeProps }) => {
+  const profile = false;
   if (!profile) {
-    return <Redirect to="/signin" />;
+    return <Redirect to="/signin"></Redirect>;
   }
   return <Route {...routeProps}>{children}</Route>;
 };
-export default PrivateRoute;
+
+export default Privateroute;
