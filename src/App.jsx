@@ -4,19 +4,19 @@ import './styles/main.scss';
 import Signin from './pages/Signin';
 import Home from './pages/Home';
 import PublicRoute from './components/PublicRoute';
-import Privateroute from './components/PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import ProfileProvider from './context/profileContext';
 
 function App() {
   return (
-    <ProfileProvider userId={'dd'}>
+    <ProfileProvider>
       <Switch>
         <PublicRoute path="/signin">
           <Signin />
         </PublicRoute>
-        <Privateroute path="/">
+        <PrivateRoute path="/">
           <Home />
-        </Privateroute>
+        </PrivateRoute>
       </Switch>
     </ProfileProvider>
   );

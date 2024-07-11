@@ -1,9 +1,12 @@
-import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { auth, database } from '../misc/firebase';
+
 export const ProfileContext = createContext();
+
 const ProfileProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
-  const [isloading, setisloading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+
   useEffect(() => {
     let userRef;
     const authUnsub = auth.onAuthStateChanged(authObj => {
@@ -18,16 +21,17 @@ const ProfileProvider = ({ children }) => {
             email: authObj.email,
           };
           setProfile(userData);
-          setisloading(false);
+          setIsLoading(false);
         });
       } else {
         if (userRef) {
           userRef.off();
         }
         setProfile(null);
-        setisloading(false);
+        setIsLoading(false);
       }
     });
+
     return () => {
       authUnsub();
       if (userRef) {
@@ -35,11 +39,13 @@ const ProfileProvider = ({ children }) => {
       }
     };
   }, []);
+
   return (
-    <ProfileContext.Provider value={(isloading, profile)}>
+    <ProfileContext.Provider value={{ isLoading, profile }}>
       {children}
     </ProfileContext.Provider>
   );
 };
+
 export const useProfile = () => useContext(ProfileContext);
 export default ProfileProvider;
