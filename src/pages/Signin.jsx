@@ -1,17 +1,6 @@
-import React from 'react';
 import firebase from 'firebase';
 import { auth, database } from '../misc/firebase';
-import {
-  Button,
-  ButtonToolbar,
-  Container,
-  Col,
-  Grid,
-  Row,
-  Panel,
-  Icon,
-  Alert,
-} from 'rsuite';
+import { Button, Container, Col, Grid, Row, Panel, Icon, Alert } from 'rsuite';
 const Signin = () => {
   const SigninWithProvider = async provider => {
     try {
