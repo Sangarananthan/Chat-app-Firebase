@@ -1,4 +1,3 @@
-import React from 'react';
 import DashBoardToggle from './dashboard/DashBoardToggle';
 
 const Sidebar = () => {

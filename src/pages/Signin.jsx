@@ -22,6 +22,7 @@ const Signin = () => {
   const onGoogleSignin = () => {
     SigninWithProvider(new firebase.auth.GoogleAuthProvider());
   };
+
   return (
     <Container>
       <Grid className="mt-page">
