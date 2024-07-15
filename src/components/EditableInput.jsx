@@ -45,7 +45,7 @@ const EditableInput = ({
           onChange={onInputChange}
         />
         <InputGroup.Button onClick={onEditClick}>
-          <Icon icon={!isEditable ? 'close' : 'edit2'} />
+          <Icon icon={!isEditable ? 'edit2' : 'close'} />
         </InputGroup.Button>
         {isEditable && (
           <InputGroup.Button onClick={onSaveClick}>
