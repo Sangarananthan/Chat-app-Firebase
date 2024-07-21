@@ -77,10 +77,10 @@ const Avataruploadbtn = () => {
       <ProfileAvatar
         name={profile.name}
         src={profile.avatar}
-        className="width-200 height-200 img-fullsize font-huge"
+        className={`width-200 height-200 img-fullsize`}
       />
 
-      <div>
+      <div className="mt-3">
         <label htmlFor="avatar-upload">
           Select new Avatar
           <input

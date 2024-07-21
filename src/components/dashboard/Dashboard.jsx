@@ -25,16 +25,24 @@ const Dashboard = ({ onSignOut }) => {
         <Drawer.Title>Dashboard</Drawer.Title>
       </Drawer.Header>
       <Drawer.Body>
-        <h3>Hey {profile.name}</h3>
-        <ProviderBlock />
+        <div className="flex-col-align w-full">
+          <div className="flex-row-align w-full h-full">
+            <Avataruploadbtn />
+            <div className="flex-col-align h-full w-half ">
+              <h3 className="my-20">Hey {profile.name}</h3>
+              <EditableInput
+                name="nickname"
+                initialvalue={profile.name}
+                onSave={onSave}
+                label={<h6 className="mb-2">Nickname</h6>}
+                className={`w-full`}
+              />
+              <ProviderBlock />
+            </div>
+          </div>
+        </div>
         <Divider />
-        <EditableInput
-          name="nickname"
-          initialvalue={profile.name}
-          onSave={onSave}
-          label={<h6 className="mb-2">Nickname</h6>}
-        />
-        <Avataruploadbtn />
+        {/* <Avataruploadbtn /> */}
       </Drawer.Body>
       <Drawer.Footer>
         <Button block color="red" onClick={onSignOut}>

@@ -33,7 +33,7 @@ const EditableInput = ({
   };
 
   return (
-    <div>
+    <div {...inputPorps}>
       {label}
       <InputGroup>
         <Input
