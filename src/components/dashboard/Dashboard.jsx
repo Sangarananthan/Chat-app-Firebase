@@ -37,7 +37,7 @@ const Dashboard = ({ onSignOut }) => {
                 label={<h6 className="mb-2">Nickname</h6>}
                 className={`w-full`}
               />
-              <ProviderBlock />
+              <ProviderBlock className={`w-full`} />
             </div>
           </div>
         </div>

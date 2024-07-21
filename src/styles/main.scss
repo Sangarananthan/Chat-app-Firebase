@@ -93,19 +93,29 @@ $chat-b: 65px;
 .flex-row-align {
   display: flex;
   flex-flow: row wrap;
-  // gap: 20px;
   justify-content: space-around;
   align-items: start;
-  // padding: 10px;
+
+  @media (max-width: 768px) {
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: start;
+  }
 }
 .w-full {
   width: 100%;
 }
 .w-half {
   width: 50%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 .w-halff {
   width: 75%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .h-full {

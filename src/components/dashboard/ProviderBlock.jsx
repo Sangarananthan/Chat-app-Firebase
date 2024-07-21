@@ -3,7 +3,7 @@ import { auth } from '../../misc/firebase';
 import { Alert, Button, Icon, Tag } from 'rsuite';
 import firebase from 'firebase/app';
 
-const ProviderBlock = () => {
+const ProviderBlock = ({ ...providerBlockProps }) => {
   const [isConnected, setisConnected] = useState({
     'google.com': auth.currentUser.providerData.some(
       data => data.providerId === 'google.com'
@@ -62,7 +62,7 @@ const ProviderBlock = () => {
   };
 
   return (
-    <div>
+    <div {...providerBlockProps}>
       {isConnected['google.com'] && (
         <Tag color={'green'} closable className="mt-2" onClose={unlinkGoogle}>
           <Icon icon={'google'} />
