@@ -25,9 +25,8 @@ const EditableInput = ({
   const onSaveClick = async () => {
     const trimmed = input.trim();
     if (!trimmed) {
-      Alert.info('Empty field', 4000);
-    }
-    if (trimmed !== initialvalue) {
+      Alert.info(emptyMsg, 4000);
+    } else if (trimmed !== initialvalue) {
       await onSave(trimmed);
     }
     setisEditable(false);

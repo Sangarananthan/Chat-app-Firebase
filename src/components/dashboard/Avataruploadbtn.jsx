@@ -8,6 +8,8 @@ import { useRef, useState } from 'react';
 import { auth, database, storage } from '../../misc/firebase';
 import AvatarEditor from 'react-avatar-editor';
 import { useProfile } from '../../context/profileContext';
+import ProfileAvatar from './ProfileAvatar';
+
 const Avataruploadbtn = () => {
   const fileInputTypes = '.png, .jpg, .jpeg';
   const acceptedFileTypes = ['image/png', 'image/jpeg', 'image/pjpeg'];
@@ -63,6 +65,7 @@ const Avataruploadbtn = () => {
       userAvatarref.set(downloadUrl);
 
       Alert.info('Avatar has been uploaded', 4000);
+      close();
       setisLoading(false);
     } catch (error) {
       Alert.error(error.message, 4000);
@@ -71,6 +74,12 @@ const Avataruploadbtn = () => {
   };
   return (
     <div className="mt-3 text-center">
+      <ProfileAvatar
+        name={profile.name}
+        src={profile.avatar}
+        className="width-200 height-200 img-fullsize font-huge"
+      />
+
       <div>
         <label htmlFor="avatar-upload">
           Select new Avatar

@@ -10,15 +10,17 @@ const ProfileProvider = ({ children }) => {
   useEffect(() => {
     let userRef;
     const authUnsub = auth.onAuthStateChanged(authObj => {
+      // console.log(authObj);
       if (authObj) {
         userRef = database.ref(`/profiles/${authObj.uid}`);
         userRef.on('value', snap => {
-          const { name, createdAt } = snap.val();
+          const { name, createdAt, avatar } = snap.val();
           const userData = {
             name,
             createdAt,
             uid: authObj.uid,
             email: authObj.email,
+            avatar: avatar,
           };
           setProfile(userData);
           setIsLoading(false);

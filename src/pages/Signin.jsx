@@ -9,6 +9,7 @@ const Signin = () => {
         await database.ref(`/profiles/${user.uid}`).set({
           name: user.displayName,
           createdAt: firebase.database.ServerValue.TIMESTAMP,
+          profilePhoto: user.photoURL,
         });
       }
       Alert.success('Signed in', 4000);
@@ -35,10 +36,10 @@ const Signin = () => {
               </div>
               <div className="mt-3">
                 <Button block color="blue" onClick={onFacebookSignin}>
-                  <Icon icon="facebook">Continue With Facebook</Icon>
+                  <Icon icon="facebook">{`  Continue With Facebook`}</Icon>
                 </Button>
                 <Button block color="green" onClick={onGoogleSignin}>
-                  <Icon icon="google">Continue With google</Icon>
+                  <Icon icon="google">{`   Continue With google`}</Icon>
                 </Button>
               </div>
             </Panel>
