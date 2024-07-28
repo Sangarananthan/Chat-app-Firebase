@@ -9,6 +9,7 @@ import { auth, database, storage } from '../../misc/firebase';
 import AvatarEditor from 'react-avatar-editor';
 import { useProfile } from '../../context/profileContext';
 import ProfileAvatar from './ProfileAvatar';
+import { getUserUpdates } from '../../misc/helper';
 
 const Avataruploadbtn = () => {
   const fileInputTypes = '.png, .jpg, .jpeg';
@@ -49,6 +50,7 @@ const Avataruploadbtn = () => {
     setisLoading(true);
     try {
       const blob = await getBlob(canvas);
+
       const avatarFileRef = storage
         .ref(`profiles/${profile.uid}`)
         .child('avatar');
@@ -58,11 +60,20 @@ const Avataruploadbtn = () => {
 
       const downloadUrl = await uploadAvatarresult.ref.getDownloadURL();
 
-      const userAvatarref = database
-        .ref(`profiles/${profile.uid}`)
-        .child('avatar');
+      const updates = await getUserUpdates(
+        profile.uid,
+        'avatar',
+        downloadUrl,
+        database
+      );
 
-      userAvatarref.set(downloadUrl);
+      await database.ref().update(updates);
+
+      // const userAvatarref = database
+      //   .ref(`profiles/${profile.uid}`)
+      //   .child('avatar');
+
+      // userAvatarref.set(downloadUrl);
 
       Alert.info('Avatar has been uploaded', 4000);
       close();
