@@ -15,6 +15,10 @@ export function transFormToArrayWithID(snapValue) {
     : [];
 }
 
+export function transFormToArray(snapValue) {
+  return snapValue ? Object.keys(snapValue) : [];
+}
+
 export async function getUserUpdates(userId, keyToUpdate, value, db) {
   // Object to hold all updates to be made
   const updates = {};

@@ -12,7 +12,7 @@ import {
 import { useModalState } from '../../misc/Custom-hooks';
 import { useCallback, useRef, useState } from 'react';
 import firebase from 'firebase/app';
-import { database } from '../../misc/firebase';
+import { auth, database } from '../../misc/firebase';
 
 const { StringType } = Schema.Types;
 
@@ -45,6 +45,9 @@ const CreateRoomBtnModal = () => {
     const newRoomData = {
       ...formValue,
       createdAt: firebase.database.ServerValue.TIMESTAMP,
+      admins: {
+        [auth.currentUser.uid]: true,
+      },
     };
 
     try {

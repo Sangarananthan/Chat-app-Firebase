@@ -6,6 +6,8 @@ import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { useRooms } from '../../context/roomsContext';
 import { Loader } from 'rsuite';
 import CurrentRoomProvider from '../../context/currentRoomContext';
+import { transFormToArray } from '../../misc/helper';
+import { auth } from '../../misc/firebase';
 const Chat = () => {
   const { chatId } = useParams();
   const rooms = useRooms();
@@ -19,9 +21,19 @@ const Chat = () => {
   }
 
   const { name, description } = currentRoom;
+
+  const admins = transFormToArray(currentRoom.admins);
+
+  // Ensure currentUser is authenticated before accessing uid
+  const isAdmin = auth.currentUser
+    ? admins.includes(auth.currentUser.uid)
+    : false;
+
   const currentRoomData = {
-    name,
-    description,
+    name: currentRoom.name || 'Unnamed Room', // Default value if name is missing
+    description: currentRoom.description || 'No description available', // Default description
+    admins,
+    isAdmin,
   };
 
   return (
